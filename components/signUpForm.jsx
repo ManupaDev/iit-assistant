@@ -18,10 +18,10 @@ function SignUpForm() {
   };
 
   const onSignUp = () => {
-    if (formData.password === formData.confirmPassword) {
+    if (formData.password === formData.confirmPassword && formData.email !== "" && formData.password !== "") {
       SignUpUser(formData.email, formData.password);
     } else {
-      console.log("Passwords Do Not Match");
+      console.log("Invalid");
     }
   };
 
@@ -77,7 +77,10 @@ function SignUpForm() {
           onChange={onFormDataChange}
         />
       </div>
-      <h1 className="border border-black mt-4 text-2xl p-2 rounded-lg text-center font-semibold cursor-pointer" onClick={onSignUp}>
+      <h1
+        className="border border-black mt-4 text-2xl p-2 rounded-lg text-center font-semibold cursor-pointer"
+        onClick={onSignUp}
+      >
         Sign Up
       </h1>
     </div>

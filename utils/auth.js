@@ -3,7 +3,11 @@
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -30,6 +34,32 @@ export const SignUpUser = async (email, password) => {
     );
     const user = userCredential.user;
     console.log(user);
+    const auth = {
+      authed: true,
+      uid: user.uid,
+    };
+    localStorage.setItem("auth", JSON.stringify(auth));
+    window.location = "http://localhost:3000/signin";
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+//*User SignIn Utility
+export const SignInUser = async (email, password) => {
+  try {
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    const user = userCredential.user;
+    console.log(user);
+    const auth = {
+      authed: true,
+      uid: user.uid,
+    };
+    localStorage.setItem("auth", JSON.stringify(auth));
   } catch (error) {
     console.error(error);
   }
