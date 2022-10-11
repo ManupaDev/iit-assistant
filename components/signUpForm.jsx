@@ -3,12 +3,11 @@ import { SignUpUser } from "../utils/auth";
 
 function SignUpForm() {
   const [formData, setFormData] = useState({
-    name: "",
+    fname: "",
+    lname: "",
     email: "",
     studentId: "",
     tutGroup: "",
-    password: "",
-    confirmPassword: "",
   });
 
   const onFormDataChange = (e) => {
@@ -18,11 +17,18 @@ function SignUpForm() {
   };
 
   const onSignUp = () => {
-    if (formData.password === formData.confirmPassword && formData.email !== "" && formData.password !== "") {
+    /*
+    if (
+      formData.password === formData.confirmPassword &&
+      formData.email !== "" &&
+      formData.password !== ""
+    ) {
       SignUpUser(formData.email, formData.password);
     } else {
       console.log("Invalid");
-    }
+    }*/
+    localStorage.setItem('user', JSON.stringify(formData));
+    window.Location = "http://localhost:3000/";
   };
 
   return (
@@ -30,9 +36,17 @@ function SignUpForm() {
       <div>
         <input
           type="text"
-          name="name"
-          value={formData.name}
-          placeholder="Name"
+          name="fname"
+          value={formData.fname}
+          placeholder="First Name"
+          className="border border-black rounded-lg mt-4 p-3 w-full text-2xl"
+          onChange={onFormDataChange}
+        />
+        <input
+          type="text"
+          name="lname"
+          value={formData.lname}
+          placeholder="Last Name"
           className="border border-black rounded-lg mt-4 p-3 w-full text-2xl"
           onChange={onFormDataChange}
         />
@@ -60,7 +74,7 @@ function SignUpForm() {
           className="border border-black rounded-lg mt-4 p-3 w-full text-2xl"
           onChange={onFormDataChange}
         />
-        <input
+        {/*<input
           type="password"
           name="password"
           value={formData.password}
@@ -75,7 +89,7 @@ function SignUpForm() {
           placeholder="Confirm Password"
           className="border border-black rounded-lg mt-4 p-4 w-full text-2xl"
           onChange={onFormDataChange}
-        />
+        />*/}
       </div>
       <h1
         className="border border-black mt-4 text-2xl p-2 rounded-lg text-center font-semibold cursor-pointer"

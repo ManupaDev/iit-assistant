@@ -1,0 +1,144 @@
+[
+  {
+    "tutGroup": "P",
+    "days": [
+      {
+        "day": "Monday",
+        "slots": [
+          {
+            "name": "Proffesional Development",
+            "type": "TUT",
+            "venue":"5LB",
+            "time": {
+              "s": "10:30",
+              "e": "12:30"
+            }
+          },
+          {
+            "name": "Proffesional Development",
+            "type": "LEC",
+            "venue":"3LA",
+            "time": {
+              "s": "13:30",
+              "e": "15:30"
+            }
+          }
+        ]
+      },
+      {
+        "day": "Tuesday",
+        "slots": [
+          {
+            "name": "SGDP",
+            "type": "LEC",
+            "venue":"ONLINE",
+            "time": {
+              "s": "08:30",
+              "e": "10:30"
+            }
+          },
+          {
+            "name": "SGDP",
+            "type": "TUT",
+            "venue":"ONLINE",
+            "time": {
+              "s": "10:30",
+              "e": "12:30"
+            }
+          },
+          {
+            "name": "SGDP",
+            "type": "FEEDBACK",
+            "venue":"ONLINE",
+            "time": {
+              "s": "13:30",
+              "e": "17:30"
+            }
+          }
+        ]
+      },
+      {
+        "day": "Wednsday",
+        "slots": [
+          {
+            "name": "Database Systems",
+            "type": "LEC",
+            "venue":"3LA",
+            "time": {
+              "s": "08:30",
+              "e": "10:30"
+            }
+          },
+          {
+            "name": "OOP:Programming",
+            "type": "TUT",
+            "venue":"1LF",
+            "time": {
+              "s": "10:30",
+              "e": "12:30"
+            }
+          },
+          {
+            "name": "OOP:Programming",
+            "type": "LEC",
+            "venue":"4LA",
+            "time": {
+              "s": "13:30",
+              "e": "15:30"
+            }
+          },
+          {
+            "name": "Database Systems",
+            "type": "TUT",
+            "venue":"2LD",
+            "time": {
+              "s": "15:30",
+              "e": "17:30"
+            }
+          }
+        ]
+      },
+      {
+        "day": "Thursday",
+        "slots": [
+          {
+            "name": "OOP:Design",
+            "type": "LEC",
+            "venue":"2LA",
+            "time": {
+              "s": "08:30",
+              "e": "10:30"
+            }
+          },
+          {
+            "name": "A. Client Side Development",
+            "type": "TUT",
+            "venue":"3LB",
+            "time": {
+              "s": "10:30",
+              "e": "12:30"
+            }
+          },
+          {
+            "name": "HCI",
+            "type": "LEC",
+            "venue":"4LC",
+            "time": {
+              "s": "13:30",
+              "e": "15:30"
+            }
+          },
+          {
+            "name": "HCI",
+            "type": "LEC",
+            "venue":"4LC",
+            "time": {
+              "s": "13:30",
+              "e": "15:30"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

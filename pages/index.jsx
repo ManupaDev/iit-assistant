@@ -1,8 +1,19 @@
 import Header from "../components/header";
 import ModuleCard from "../components/moduleCard";
 import { VscHome } from "react-icons/vsc";
+import { useEffect, useState } from "react";
 
 function Home() {
+  const [user, setUser] = useState(null);  
+
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      setUser(JSON.parse(localStorage.getItem("user")));
+    }else{
+        window.location = "http://localhost:3000/signup";
+    }
+  }, []);
+
   return (
     <div className="min-h-screen border border-red-500">
       <div className="p-4">
