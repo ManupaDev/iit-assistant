@@ -1,6 +1,10 @@
+import { useState } from "react";
 import SignUpForm from "../components/signUpForm";
 
 function SignUp() {
+
+  const [error, setError] = useState({status:false, message:''});
+
   return (
     <div className="min-h-screen border border-red-500">
       <div className="px-4 mt-24">
@@ -12,8 +16,10 @@ function SignUp() {
             Join to make your life easier
           </h2>
         </div>
-
-        <SignUpForm />
+        <div className="flex justify-end">
+          <h1 className="text-sm mt-4 text-red-600">{error.message}</h1>
+        </div>
+        <SignUpForm error={error} setError={setError}/>
       </div>
       
       {/* <div className=" fixed bottom-0 w-full p-4 ">

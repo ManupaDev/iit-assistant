@@ -1,57 +1,42 @@
 import Header from "../components/header";
-import ModuleCard from "../components/moduleCard";
 import { VscHome } from "react-icons/vsc";
 import { useEffect, useState } from "react";
+import { getSlotsForToday, getTimetable } from "../utils/api";
+import ModuleCards from "../components/moduleCards";
 
 function Home() {
-  const [user, setUser] = useState(null);  
+  const [slots, setSlots] = useState(null);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     if (localStorage.getItem("user")) {
       setUser(JSON.parse(localStorage.getItem("user")));
-    }else{
-        window.location = "http://localhost:3000/signup";
+    } else {
+      window.location = "http://localhost:3000/signup";
     }
   }, []);
 
-  return (
-    <div className="min-h-screen border border-red-500">
-      <div className="p-4">
-        <Header />
-        <div className="mt-6">
-          <h1 className="text-center text-4xl">Today</h1>
-          <div className="flex flex-col ">
-            <ModuleCard
-              mode="LEC"
-              venue="4LA"
-              time={{ s: "08:30", e: "10:30" }}
-            />
-            <ModuleCard
-              mode="LEC"
-              venue="4LA"
-              time={{ s: "08:30", e: "10:30" }}
-            />
-            <ModuleCard
-              mode="LEC"
-              venue="4LA"
-              time={{ s: "08:30", e: "10:30" }}
-            />
-            <ModuleCard
-              mode="LEC"
-              venue="4LA"
-              time={{ s: "08:30", e: "10:30" }}
-            />
+  useEffect(() => {
+    if (user) {
+      getSlotsForToday(user.tutGroup).then((data) => {
+        setSlots(data);
+      });
+    }
+  }, [user]);
+
+  if (user) {
+    return (
+      <div className="min-h-screen border border-red-500">
+        <div className="p-4">
+          <Header />
+          <div className="mt-6">
+            <h1 className="text-center text-4xl">Today</h1>
+            <ModuleCards slots={slots} />
           </div>
         </div>
       </div>
-
-      <div className=" fixed bottom-0 w-full p-4">
-        <div className="border border-black p-2 rounded-2xl flex justify-center  ">
-          <VscHome size={32} />
-        </div>
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Home;
