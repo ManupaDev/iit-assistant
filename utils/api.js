@@ -77,7 +77,7 @@ export const getSlotsForToday = async (group) => {
   const { days } = await getTimetable(group);
   
 
-  const today = ['sunday','monday', 'tuesday', 'wednsday', 'thursday', 'friday', 'thursday'][(new Date()).getDay()];
+  const today = getToday();
   if (today == 'sunday' || today == 'saturday') {
     return [];
   }else{
@@ -85,7 +85,20 @@ export const getSlotsForToday = async (group) => {
     const {slots} = days.find((day) => {
       return day.day === today;
     });
-    return slots;
+    return {today, slots};
   }
 
 };
+
+export const getToday = ()=>{
+  const today = ['sunday','monday', 'tuesday', 'wednsday', 'thursday', 'friday', 'thursday'][(new Date()).getDay()];
+  return today;
+}
+
+export const getDayFromTimetable = (timeTable, selectedDay) =>{
+  const { days } = timeTable;
+  const {slots} = days.find((day) => {
+    return day.day === selectedDay;
+  });
+  return {selectedDay, slots};
+}

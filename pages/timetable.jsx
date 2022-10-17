@@ -3,11 +3,11 @@ import { HiMenu } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { getSlotsForToday, getTimetable } from "../utils/api";
-import ModuleCards from "../components/moduleCards";
 import Link from "next/link";
+import Switcher from "../components/switcher";
 
-function Home() {
-  const [slots, setSlots] = useState(null);
+function Timetable() {
+  const [timetable, setTimetable] = useState(null);
   const [user, setUser] = useState(null);
   const [open, setOpen] = useState(false);
 
@@ -21,22 +21,23 @@ function Home() {
 
   useEffect(() => {
     if (user) {
-      getSlotsForToday(user.tutGroup).then((data) => {
-        setSlots(data.slots);
+      getTimetable(user.tutGroup).then((data) => {
+        setTimetable(data);
       });
     }
   }, [user]);
 
-  if (user) {
+  if (user && timetable) {
     return (
       <div className="min-h-screen border border-red-500 flex flex-col justify-between">
         <div className="p-4">
           <Header />
           <div className="mt-6">
-            <h1 className="text-center text-4xl">Today</h1>
-            <ModuleCards slots={slots} />
+            <h1 className="text-center text-4xl">Timetable</h1>
+            <Switcher timetable={timetable} />
+
           </div>
-          
+         
           <div
             className={`w-12 h-12 border border-black fixed bottom-4 right-4 rounded-full z-10 justify-center items-center ${
               open ? "hidden" : "flex"
@@ -75,12 +76,12 @@ function Home() {
               />
             </div>
           </div>
-          
         </div>
         <h1 className="text-center p-4">Made With 💖 By <span className="font-semibold">ManupaDev</span></h1>
+      
       </div>
     );
   }
 }
 
-export default Home;
+export default Timetable;
