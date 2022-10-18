@@ -37,7 +37,7 @@ function Timetable() {
         </Head>
         <div className="min-h-screen border border-red-500 flex flex-col justify-between">
           <div className="p-4">
-            <Header />
+            <Header user={user}/>
             <div className="mt-6">
               <h1 className="text-center text-4xl">Timetable</h1>
               <Switcher timetable={timetable} />

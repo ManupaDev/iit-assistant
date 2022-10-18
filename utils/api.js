@@ -102,3 +102,4 @@ export const getDayFromTimetable = (timeTable, selectedDay) =>{
   });
   return {selectedDay, slots};
 }
+

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { getToday, getDayFromTimetable } from "../utils/api";
 import ModuleCards from "./moduleCards";
 
-
 function Switcher({ timetable }) {
   console.log(timetable);
   const [day, setDay] = useState(null);
@@ -20,8 +19,8 @@ function Switcher({ timetable }) {
       <div className=" mt-4  flex flex-col ">
         <div className=" border border-black rounded-lg grid-cols-5 grid">
           <h1
-            onClick={()=>{
-                setSlotsForDay("monday");
+            onClick={() => {
+              setSlotsForDay("monday");
             }}
             className={`text-2xl font-semibold px-2 py-1  text-center ${
               day.selectedDay === "monday"
@@ -32,8 +31,8 @@ function Switcher({ timetable }) {
             Mon
           </h1>
           <h1
-            onClick={()=>{
-                setSlotsForDay("tuesday");
+            onClick={() => {
+              setSlotsForDay("tuesday");
             }}
             className={`text-2xl font-semibold px-2 py-1  text-center ${
               day.selectedDay === "tuesday"
@@ -44,8 +43,8 @@ function Switcher({ timetable }) {
             Tue
           </h1>
           <h1
-            onClick={()=>{
-                setSlotsForDay("wednsday");
+            onClick={() => {
+              setSlotsForDay("wednsday");
             }}
             className={`text-2xl font-semibold px-2 py-1  text-center ${
               day.selectedDay === "wednsday"
@@ -56,8 +55,8 @@ function Switcher({ timetable }) {
             Wed
           </h1>
           <h1
-            onClick={()=>{
-                setSlotsForDay("thursday");
+            onClick={() => {
+              setSlotsForDay("thursday");
             }}
             className={`text-2xl font-semibold px-2 py-1  text-center ${
               day.selectedDay === "thursday"
@@ -68,8 +67,8 @@ function Switcher({ timetable }) {
             Thu
           </h1>
           <h1
-            onClick={()=>{
-                setSlotsForDay("friday");
+            onClick={() => {
+              setSlotsForDay("friday");
             }}
             className={`text-2xl font-semibold px-2 py-1  text-center ${
               day.selectedDay === "friday"
