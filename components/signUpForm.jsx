@@ -45,7 +45,7 @@ function SignUpForm({ setError, error }) {
         return;
       }
       localStorage.setItem("user", JSON.stringify(formData));
-      window.location = "http://localhost:3000/";
+      window.location = "https://iit-assistant.vercel.app/";
     } else {
       setError({ status: true, message: "A Required Field Is Missing." });
     }

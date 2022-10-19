@@ -16,7 +16,7 @@ function Home() {
     if (localStorage.getItem("user")) {
       setUser(JSON.parse(localStorage.getItem("user")));
     } else {
-      window.location = "http://localhost:3000/signup";
+      window.location = "https://iit-assistant.vercel.app/signup";
     }
   }, []);
 
