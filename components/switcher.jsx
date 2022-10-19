@@ -17,14 +17,14 @@ function Switcher({ timetable }) {
   if (day) {
     return (
       <div className=" mt-4  flex flex-col ">
-        <div className=" border border-black rounded-lg grid-cols-5 grid">
+        <div className=" border bg-slate-200 rounded-lg grid-cols-5 grid">
           <h1
             onClick={() => {
               setSlotsForDay("monday");
             }}
             className={`text-2xl font-semibold px-2 py-1  text-center ${
               day.selectedDay === "monday"
-                ? "border border-black rounded-lg"
+                ? "border  rounded-lg bg-teal-600 text-white"
                 : ""
             }`}
           >
@@ -36,7 +36,7 @@ function Switcher({ timetable }) {
             }}
             className={`text-2xl font-semibold px-2 py-1  text-center ${
               day.selectedDay === "tuesday"
-                ? "border border-black rounded-lg"
+                ? "border border-black rounded-lg bg-bluegrey-700 text-white"
                 : ""
             }`}
           >
@@ -48,7 +48,7 @@ function Switcher({ timetable }) {
             }}
             className={`text-2xl font-semibold px-2 py-1  text-center ${
               day.selectedDay === "wednsday"
-                ? "border border-black rounded-lg"
+                ? "border border-black rounded-lg bg-bluegrey-700 text-white"
                 : ""
             }`}
           >
@@ -60,7 +60,7 @@ function Switcher({ timetable }) {
             }}
             className={`text-2xl font-semibold px-2 py-1  text-center ${
               day.selectedDay === "thursday"
-                ? "border border-black rounded-lg"
+                ? "border border-black rounded-lg bg-slate-800 text-white"
                 : ""
             }`}
           >
@@ -72,7 +72,7 @@ function Switcher({ timetable }) {
             }}
             className={`text-2xl font-semibold px-2 py-1  text-center ${
               day.selectedDay === "friday"
-                ? "border border-black rounded-lg"
+                ? "border border-black rounded-lg bg-bluegrey-700 text-white"
                 : ""
             }`}
           >

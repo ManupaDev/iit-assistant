@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { SignUpUser } from "../utils/auth";
 
-function SignUpForm({ setError,error }) {
+function SignUpForm({ setError, error }) {
   const [formData, setFormData] = useState({
     fname: "",
     lname: "",
@@ -19,13 +19,33 @@ function SignUpForm({ setError,error }) {
   const onSignUp = () => {
     if (formData.tutGroup && formData.fname) {
       formData.tutGroup = formData.tutGroup.toUpperCase();
-      const groupList = ['A','B', 'C', 'D', 'E', 'F',  'G', 'H', 'I' , 'J', 'K', 'L','M', 'N', 'O', 'P', 'Q', 'R', 'S'];
+      const groupList = [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+      ];
       if (!groupList.includes(formData.tutGroup)) {
-        setError({status:true, message:"Invalid Group"});
+        setError({ status: true, message: "Invalid Group" });
         return;
       }
       localStorage.setItem("user", JSON.stringify(formData));
-      window.location = "https://iit-assistant.vercel.app/";
+      window.location = "http://localhost:3000/";
     } else {
       setError({ status: true, message: "A Required Field Is Missing." });
     }
@@ -35,22 +55,28 @@ function SignUpForm({ setError,error }) {
     <div className="mt-4">
       <div>
         <div className="flex flex-col items-end">
-        <h1 className={`text-sm  text-red-600 ${error.status?'':'hidden'}`}>Required</h1>
-        <input
-          type="text"
-          name="fname"
-          value={formData.fname}
-          placeholder="First Name"
-          className="border border-black rounded-lg  p-3 w-full text-2xl"
-          onChange={onFormDataChange}
-        />
+          <h1
+            className={`text-sm  text-red-600   ${
+              error.status ? "" : "hidden"
+            }`}
+          >
+            Required
+          </h1>
+          <input
+            type="text"
+            name="fname"
+            value={formData.fname}
+            placeholder="First Name"
+            className="border border-bluegrey-600 text-bluegrey-700 focus:outline-teal-600 rounded-lg  p-3 w-full text-2xl  "
+            onChange={onFormDataChange}
+          />
         </div>
         <input
           type="text"
           name="lname"
           value={formData.lname}
           placeholder="Last Name"
-          className="border border-black rounded-lg mt-4 p-3 w-full text-2xl"
+          className="border border-bluegrey-600 rounded-lg mt-4 p-3 w-full focus:outline-teal-600 text-2xl  "
           onChange={onFormDataChange}
         />
         <input
@@ -58,7 +84,7 @@ function SignUpForm({ setError,error }) {
           name="email"
           value={formData.email}
           placeholder="IIT Email"
-          className="border border-black rounded-lg mt-4 p-3 w-full text-2xl"
+          className="border border-bluegrey-600 rounded-lg mt-4 p-3 w-full focus:outline-teal-600 text-2xl  "
           onChange={onFormDataChange}
         />
         <input
@@ -66,19 +92,25 @@ function SignUpForm({ setError,error }) {
           name="studentId"
           value={formData.studentId}
           placeholder="Student ID"
-          className="border border-black rounded-lg mt-4 p-3 w-full text-2xl"
+          className="border border-bluegrey-600 rounded-lg mt-4 p-3 w-full focus:outline-teal-600 text-2xl  "
           onChange={onFormDataChange}
         />
         <div className="flex flex-col items-end ">
-        <h1 className={`text-sm  text-red-600 ${error.status?'':'hidden'}`}>Required</h1>
-        <input
-          type="text"
-          name="tutGroup"
-          value={formData.tutGroup}
-          placeholder="Tutorial Group"
-          className={`border border-black rounded-lg  ${error.status?'':'mt-4'} p-3 w-full text-2xl`}
-          onChange={onFormDataChange}
-        />
+          <h1
+            className={`text-sm  text-red-600 ${error.status ? "" : "hidden"}`}
+          >
+            Required
+          </h1>
+          <input
+            type="text"
+            name="tutGroup"
+            value={formData.tutGroup}
+            placeholder="Tutorial Group"
+            className={`border border-bluegrey-600 rounded-lg   focus:outline-teal-600 ${
+              error.status ? "" : "mt-4"
+            } p-3 w-full text-2xl`}
+            onChange={onFormDataChange}
+          />
         </div>
 
         {/*<input
@@ -99,7 +131,7 @@ function SignUpForm({ setError,error }) {
         />*/}
       </div>
       <h1
-        className="border border-black mt-4 text-2xl p-2 rounded-lg text-center font-semibold cursor-pointer"
+        className="border  border-black mt-4 text-2xl p-2 rounded-lg text-center font-semibold text-white bg-teal-600 cursor-pointer"
         onClick={onSignUp}
       >
         Sign Up

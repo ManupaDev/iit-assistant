@@ -18,7 +18,7 @@ function SignIn() {
       <div className=" fixed bottom-0 w-full p-4 ">
         <h1 className="text-base text-center">New to IIT Assistant?</h1>
         <h1 className="border border-black mt-4 text-2xl p-2 rounded-lg text-center font-semibold" onClick={() => {
-          window.location = "https://iit-assistant.vercel.app/signup";
+          window.location = "http://localhost:3000/signup";
         }}>
           Sign Up
         </h1>

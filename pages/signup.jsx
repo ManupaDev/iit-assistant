@@ -6,13 +6,13 @@ function SignUp() {
   const [error, setError] = useState({status:false, message:''});
 
   return (
-    <div className="min-h-screen border border-red-500">
+    <div className="min-h-screen border bg-slate-200">
       <div className="px-4 mt-24">
         <div>
-          <h1 className="font-semibold text-3xl text-center">
+          <h1 className="font-semibold text-3xl text-center text-bluegrey-600 font-sans">
             Welcome To IIT Assistant
           </h1>
-          <h2 className="font-light text-base mt-4 text-center">
+          <h2 className="font-light text-base mt-4 text-center text-bluegrey-500">
             Join to make your life easier
           </h2>
         </div>
@@ -27,7 +27,7 @@ function SignUp() {
         <h1
           className="border border-black mt-4 text-2xl p-2 rounded-lg text-center font-semibold"
           onClick={() => {
-            window.location = "https://iit-assistant.vercel.app/signin";
+            window.location = "http://localhost:3000/signin";
           }}
         >
           Sign In

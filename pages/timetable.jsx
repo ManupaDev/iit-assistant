@@ -17,7 +17,7 @@ function Timetable() {
     if (localStorage.getItem("user")) {
       setUser(JSON.parse(localStorage.getItem("user")));
     } else {
-      window.location = "https://iit-assistant.vercel.app/signup";
+      window.location = "http://localhost:3000/signup";
     }
   }, []);
 
@@ -33,13 +33,13 @@ function Timetable() {
     return (
       <>
         <Head>
-          <title>IITAssistant | Ttimetable</title>
+          <title>IITAssistant | Timetable</title>
         </Head>
         <div className="min-h-screen border border-red-500 flex flex-col justify-between">
           <div className="p-4">
             <Header user={user}/>
             <div className="mt-6">
-              <h1 className="text-center text-4xl">Timetable</h1>
+              <h1 className="text-center font-bold text-4xl text-teal-600">TimeTable</h1>
               <Switcher timetable={timetable} />
             </div>
 
@@ -54,16 +54,16 @@ function Timetable() {
               <HiMenu size={24} />
             </div>
             <div
-              className={`w-fit  h-50 border bg-slate-100 border-black fixed bottom-4 right-4  p-2 z-10 rounded-2xl  flex-col justify-between ${
+              className={`w-fit h-50 border bg-slate-100 border-black fixed bottom-4 right-4  p-2 z-10 rounded-2xl  flex-col justify-between ${
                 open ? "flex" : "hidden"
               }`}
             >
               <div className="flex  flex-col items-end">
                 <Link href="/">
-                  <a className="text-xl p-2">Today</a>
+                  <a className="text-xl  p-2 font-semibold">Today</a>
                 </Link>
                 <Link href="/timetable">
-                  <a className="text-xl p-2">TimeTable</a>
+                  <a className="text-xl p-2 font-semibold">TimeTable</a>
                 </Link>
                 {/* <Link href="/materials">
                   <a className="text-xl p-2">Materials</a>
@@ -72,7 +72,7 @@ function Timetable() {
                   <a className="text-xl p-2">Profile</a>
                 </Link> */}
               </div>
-              <div className="flex justify-end p-2 ">
+              <div className="flex justify-end p-2">
                 <MdClose
                   size={24}
                   onClick={() => {
