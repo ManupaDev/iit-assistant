@@ -36,7 +36,7 @@ function Switcher({ timetable }) {
             }}
             className={`text-2xl font-semibold px-2 py-1  text-center ${
               day.selectedDay === "tuesday"
-                ? "border border-black rounded-lg bg-teal-700 text-white"
+                ? "border border-black rounded-lg bg-teal-600 text-white"
                 : ""
             }`}
           >
