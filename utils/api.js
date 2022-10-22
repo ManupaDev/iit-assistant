@@ -6,7 +6,6 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { loadGetInitialProps } from "next/dist/shared/lib/utils";
 import { app } from "./init";
 
 // Initialize Cloud Firestore and get a reference to the service
@@ -55,6 +54,10 @@ export const createDay = async (timeTable) => {
     console.error("Error adding document: ", e);
   }
 };
+
+export const createTimetable = async (timeTable)=>{
+  
+}
 
 export const getTimetable = async (group) => {
   try {

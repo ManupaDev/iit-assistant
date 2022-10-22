@@ -21,7 +21,6 @@ function SignUp() {
         </div>
         <SignUpForm error={error} setError={setError}/>
       </div>
-      
       {/* <div className=" fixed bottom-0 w-full p-4 ">
         <h1 className="text-base text-center">Already have an account?</h1>
         <h1
