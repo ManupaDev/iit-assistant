@@ -35,7 +35,7 @@ function Timetable() {
         <Head>
           <title>IITAssistant | Timetable</title>
         </Head>
-        <div className="min-h-screen border border-red-500 flex flex-col justify-between">
+        <div className="min-h-screen  flex flex-col justify-between">
           <div className="p-4">
             <Header user={user}/>
             <div className="mt-6">

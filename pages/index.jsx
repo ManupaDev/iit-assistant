@@ -15,7 +15,7 @@ function Home() {
   useEffect(() => {
     if (localStorage.getItem("user")) {
       setUser(JSON.parse(localStorage.getItem("user")));
-    } else {
+    } else { 
       window.location = "https://iit-assistant.vercel.app/signup";
     }
   }, []);

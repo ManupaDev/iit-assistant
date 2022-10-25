@@ -55,9 +55,7 @@ export const createDay = async (timeTable) => {
   }
 };
 
-export const createTimetable = async (timeTable)=>{
-  
-}
+export const createTimetable = async (timeTable) => {};
 
 export const getTimetable = async (group) => {
   try {
@@ -78,31 +76,40 @@ export const getTimetable = async (group) => {
 
 export const getSlotsForToday = async (group) => {
   const { days } = await getTimetable(group);
-  
 
   const today = getToday();
-  if (today == 'sunday' || today == 'saturday') {
-    return [];
-  }else{
-
-    const {slots} = days.find((day) => {
+  if (today == "sunday" || today == "saturday") {
+    return { today, slots: [] };
+  } else {
+    const { slots } = days.find((day) => {
       return day.day === today;
     });
-    return {today, slots};
+    return { today, slots };
   }
-
 };
 
-export const getToday = ()=>{
-  const today = ['sunday','monday', 'tuesday', 'wednsday', 'thursday', 'friday', 'thursday'][(new Date()).getDay()];
+export const getToday = () => {
+  const today = [
+    "sunday",
+    "monday",
+    "tuesday",
+    "wednsday",
+    "thursday",
+    "friday",
+    "saturday",
+  ][new Date().getDay()];
   return today;
-}
+};
 
-export const getDayFromTimetable = (timeTable, selectedDay) =>{
+export const getDayFromTimetable = (timeTable, selectedDay) => {
   const { days } = timeTable;
-  const {slots} = days.find((day) => {
+
+  if (selectedDay === "sunday" || selectedDay === "saturday") {
+    selectedDay = "monday";
+  }
+  const { slots } = days.find((day) => {
     return day.day === selectedDay;
   });
-  return {selectedDay, slots};
-}
-
+  
+  return { selectedDay, slots };
+};

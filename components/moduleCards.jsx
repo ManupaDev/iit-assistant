@@ -5,11 +5,11 @@ function ModuleCards({ slots }) {
 
   if (slots) {
     if (slots.length === 0) {
-      return (<div className="flex flex-col">
-        <div className="border-2 border-black p-4 mt-4 rounded-2xl flex justify-center">
-          <h1>Enjoy Your Weekend.✨</h1>
+      return (
+        <div className="border-2 bg-white border-bluegrey-500 p-6 mt-4 rounded-2xl flex justify-center items-center">
+          <h1 className="text-xl  font-semibold text-bluegrey-700">Enjoy Your Weekend.✨</h1>
         </div>
-      </div>);
+      );
     } else {
       return (
         <div className="flex flex-col">
