@@ -55,6 +55,22 @@ export const createDay = async (timeTable) => {
   }
 };
 
+export const createUser = async (userData) => {
+  const { fname, lname, email, tutGroup } = userData;
+  try {
+    const docRef = await addDoc(collection(db, "users"), {
+      fname,
+      lname,
+      email,
+      tutGroup
+    });
+    console.log("Document written with ID: ", docRef.id);
+    return docRef;
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+};
+
 export const createTimetable = async (timeTable) => {};
 
 export const getTimetable = async (group) => {

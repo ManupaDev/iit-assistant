@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createUser } from "../utils/api";
 import { SignUpUser } from "../utils/auth";
 
 function SignUpForm({ setError, error }) {
@@ -6,7 +7,6 @@ function SignUpForm({ setError, error }) {
     fname: "",
     lname: "",
     email: "",
-    studentId: "",
     tutGroup: "",
   });
 
@@ -16,22 +16,10 @@ function SignUpForm({ setError, error }) {
     console.log(formData);
   };
 
-  const onSignUp = () => {
+  const onSignUp = async() => {
     if (formData.tutGroup && formData.fname) {
       formData.tutGroup = formData.tutGroup.toUpperCase();
       const groupList = [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-        "G",
-        "H",
-        "I",
-        "J",
-        "K",
-        "L",
         "M",
         "N",
         "O",
@@ -45,6 +33,7 @@ function SignUpForm({ setError, error }) {
         return;
       }
       localStorage.setItem("user", JSON.stringify(formData));
+      await createUser(formData);
       window.location = "https://iit-assistant.vercel.app/";
     } else {
       setError({ status: true, message: "A Required Field Is Missing." });
@@ -87,14 +76,14 @@ function SignUpForm({ setError, error }) {
           className="border border-bluegrey-600 rounded-lg mt-4 p-3 w-full focus:outline-teal-600 text-2xl  "
           onChange={onFormDataChange}
         />
-        <input
+        {/* <input
           type="text"
           name="studentId"
           value={formData.studentId}
           placeholder="Student ID"
           className="border border-bluegrey-600 rounded-lg mt-4 p-3 w-full focus:outline-teal-600 text-2xl  "
           onChange={onFormDataChange}
-        />
+        /> */}
         <div className="flex flex-col items-end ">
           <h1
             className={`text-sm  text-red-600 ${error.status ? "" : "hidden"}`}
@@ -136,6 +125,9 @@ function SignUpForm({ setError, error }) {
       >
         Sign Up
       </h1>
+      <div className="flex text-white bg-teal-700 justify-center  rounded-lg items-center p-1 mt-4  text-center border border-black">Currently Implemented For Groups M - S</div>
+      <div className="flex justify-center text-white bg-teal-700 rounded-lg items-center p-1 mt-2  text-center border border-black">Groups A - L will soon be updated.</div>
+    
     </div>
   );
 }

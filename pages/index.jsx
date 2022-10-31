@@ -43,7 +43,7 @@ function Home() {
             </div>
 
             <div
-              className={`w-12 h-12 border border-black fixed bottom-4 right-4 rounded-full z-10 justify-center items-center ${
+              className={`w-12 h-12 border bg-slate-100 border-black fixed bottom-4 right-4 rounded-full z-10 justify-center items-center ${
                 open ? "hidden" : "flex"
               }`}
               onClick={() => {
@@ -59,10 +59,10 @@ function Home() {
             >
               <div className="flex  flex-col items-end">
                 <Link href="/">
-                  <a className="text-xl p-2  font-semibold">Today</a>
+                  <a className="text-xl p-2  text-bluegrey-700 font-semibold">Today</a>
                 </Link>
                 <Link href="/timetable">
-                  <a className="text-xl p-2 font-semibold">TimeTable</a>
+                  <a className="text-xl p-2 text-bluegrey-700 font-semibold">TimeTable</a>
                 </Link>
                 {/* <Link href="/materials">
                   <a className="text-xl p-2">Materials</a>
