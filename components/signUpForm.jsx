@@ -20,6 +20,10 @@ function SignUpForm({ setError, error }) {
     if (formData.tutGroup && formData.fname) {
       formData.tutGroup = formData.tutGroup.toUpperCase();
       const groupList = [
+        "E",
+        "F",
+        "G",
+        "H",
         "M",
         "N",
         "O",
